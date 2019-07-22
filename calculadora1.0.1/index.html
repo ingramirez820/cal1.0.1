@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app='calculadora'>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora v1.0.1</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <div class="h1">
+  <h1>Calculadora v1.0</h1>
+  <p>Versión Beta v1.0.1</p>
+  </div>
+  <form class="calc" ng-controller="Ctrl1">
+    <p class="calc-display">
+      <input type="text" name="output" id="res" value="{{output}}" class="calc-display-input">
+    </p>
+    <p class="operators">
+      <button type="button" class="calc-button calc-button-red calc-button-big" ng-click='operate("/")' >÷</button>
+      <button type="button" class="calc-button calc-button-red calc-button-big" ng-click='operate("*")' >x</button>
+      <button type="button" class="calc-button calc-button-red calc-button-big" ng-click='operate("-")' >-</button>
+      <button type="button" class="calc-button calc-button-red calc-button-big" ng-click='operate("+")' >+</button>
+    </p>
+    <p class="calc-row">
+      <!--Dibujame la matriz de números-->
+      <button type="button" class="calc-button" ng-click="updateOutput($index)" ng-repeat="n in matrizBotones">
+        {{n}}
+      </button>
+      <!--Decimales-->
+      <button type="button" class="calc-button" ng-click="updateOutput('.')">
+      .
+      </button>
+      <!--Limpia el display-->
+      <button type="button" class="calc-button" ng-click='output = 0'>
+      C
+      </button>
+    </p>
+      <!--Dame el resultado-->
+    <p class="calc-row">
+      <button type="button" class="calc-button calc-button-yellow calc-button-big" ng-click="equal()">
+      =
+    </button>
+    </p>
+
+  </form>
+  
+  
+
+</body>
+</html>
